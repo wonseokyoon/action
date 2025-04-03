@@ -1,14 +1,19 @@
 name: work-1
 on:
   push:
+    paths:
+      - ".github/workflows/**"
+      - "src/**"
+      - "build.gradle"
+      - "build.gradle.kts"
+      - "Dockerfile"
     branches:
       - main
 jobs:
   hello1:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
       - name: Create Tag
         id: create_tag
         uses: mathieudutour/github-tag-action@v6.2
